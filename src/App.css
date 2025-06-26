@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;900&family=Play:wght@500;700&display=swap');
+@import "tailwindcss";
+@plugin "flowbite/plugin";
+@source "../node_modules/flowbite";
+@layer theme, base, components, utilities;
+
+body{
+  background-color: #F0F0F0;
+}
+
+
+
+@theme {
+  --color-*: initial;
+  --color-blue-changan: #183E75;
+  --color-gray-changan: #8F8F8F;
+  --color-black-changan: #0f0f10;
+  --color-white-changan: #EEEEEF;
+}
+
+.bg-white-changan {
+  background-color: var(--color-white-changan);
+}
+
+h3{
+  font-size: 20px;
+}
+
+h2 {
+  font-size: 38px;
+}
+
+.border-blue-changan {
+  border-bottom: 5px solid var(--color-blue-changan);
+}
+
+.button-rounded-changan {
+  border-radius: 7.5px;
+}
+
+.button-blue-changan {
+  background-color: var(--color-blue-changan)
+}
+
+.button-blue-changan:hover {
+  background-color: var(--color-black-changan);
+  transition: all 0.3s ease-in-out;
+}
+
+.text-primary-changan{
+  color: var(--color-blue-changan);
+}
+
+.text-primary-changan:hover {
+  color: var(--color-black-changan);
+  text-decoration: underline;
+}
+
+.text-gray-changan {
+  color: var(--color-gray-changan);
+}
+
+.text-white-changan {
+  color: #fff;
+}
+
+.text-black-changan {
+  color: #000;
+}
+
+.play-regular {
+  font-family: "Play", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.hint-content p.open-sans-regular {
+  text-align: justify;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  word-break: normal;   /* No cortar palabras largas */
+  hyphens: none;        /* No usar guiones automáticos */
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.play-bold {
+  font-family: "Play", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.open-sans-regular {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.open-sans-bold {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+@keyframes bounce {
+	0% {
+		transform: scale(1);
+	}
+	30% {
+		transform: scale(1.1);
+	}
+	50% {
+		transform: scale(0.95);
+	}
+	70% {
+		transform: scale(1.05);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+@keyframes bounceMobile { 
+  0% {
+    transform: scale(1) translateX(-19%);
+  }
+  30% {
+    transform: scale(1.1) translateX(-19%);
+  }
+  50% {
+    transform: scale(0.95) translateX(-19%);
+  }
+  70% {
+    transform: scale(1.05) translateX(-19%);
+  }
+  100% {
+    transform: scale(1) translateX(-19%);
+  }
+}

@@ -1,0 +1,141 @@
+.vehiculo{
+    display: block;
+    position: relative;
+    margin:auto;
+    margin-top:25px;
+    width: 170%;
+    max-width: none;
+    right:0;
+    left:0;
+    transform: translateX(-19%);
+    min-height: 294px;
+    max-width: 650px;
+}
+
+@media (min-width: 768px) {
+    .vehiculo {
+        width: 100%;
+        max-width: 600px; /* o el valor que uses en desktop */
+        transform: none;
+    }
+}
+
+.arrow-blink{
+  display: none;
+}
+
+.background-showroom360 {
+  background-image: url('/assets/bg2.png');
+  background-size: cover;
+  background-position: bottom;
+}
+
+
+@media only screen and (min-width: 600px) {
+  .vehiculo{
+     transform: translateX(-5%)
+  }
+}
+
+@media only screen and (min-width: 650px) {
+  .vehiculo{
+     transform: translateX(0%)
+  }
+}
+
+
+@media only screen and (min-width: 768px) {
+  .vehiculo{
+      max-width: 1000px;
+  }
+
+  .arrow-blink{
+    display:block
+  }
+}
+
+
+@media only screen and (min-width: 1024px) {
+  .vehiculo{
+      max-width: 700px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .vehiculo{
+      max-width: 750px;
+  }
+}
+
+@media only screen and (min-width: 1800px) {
+  .vehiculo{
+      max-width: 750px;
+  }
+}
+
+.arrow-rounded-left{
+    position: absolute;
+    left:0px;
+    top:40%;
+    bottom:0px;
+}
+
+.arrow-rounded-right{
+    position: absolute;
+    right:0px;
+    top:40%;
+    bottom:0px;
+}
+
+@keyframes blink-fade {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+.arrow-blink {
+  animation: blink-fade 5s infinite;
+}
+
+
+.vehiculo {
+  position: relative;
+	transition: transform 0.3s ease;
+}
+
+.vehiculo.bounce {
+	animation: bounceMobile 0.5s ease;
+}
+
+
+@media only screen and (min-width: 768px) {
+  .vehiculo.bounce {
+    animation: bounce 0.5s ease;
+  }
+}
+
+
+.button-play{
+  display: block;
+  width: 50px;
+  height: 50px;
+  background-color: var(--color-blue-changan);
+}
+
+.body-content{
+  background-color: #eeeeef;
+}
+
+.body-content .information{
+  max-width: 1300px;
+  margin:auto;
+}
