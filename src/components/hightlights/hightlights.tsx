@@ -12,9 +12,6 @@ const hintsById: any = {
         content: `<h3 class="play-bold text-left uppercase">Caucho</h3>
 					<p class="open-sans-regular">
 					Disfruta de una conducción segura y confortable gracias a los cauchos de alta calidad que incorpora este modelo. 
-					Su sistema de frenos antibloqueo (ABS), la suspensión avanzada y el control electrónico de estabilidad te brindan
-					máxima seguridad y confianza en cada trayecto, incluso en las condiciones más exigentes. Invierte en tranquilidad y 
-					rendimiento superior para ti y tu familia.
 					</p>`,
     },
     maletera: {
@@ -22,8 +19,6 @@ const hintsById: any = {
         content: `<h3 class="play-bold text-left uppercase">Maletera</h3>
 					<p class="open-sans-regular">
 					Descubre la amplitud y versatilidad de un maletero diseñado para acompañar tu estilo de vida. 
-					Ya sea para viajes familiares, compras o aventuras de fin de semana, tendrás espacio de sobra y la tranquilidad de 
-					un cierre seguro. Lleva todo lo que necesitas y más, con la comodidad y practicidad que solo este vehículo puede ofrecerte.
 					</p>`,
     },
     parabrisas: {
@@ -31,8 +26,7 @@ const hintsById: any = {
         content: `<h3 class="play-bold text-left uppercase">Parabrisas</h3>
 					<p class="open-sans-regular">
 					Experimenta una visión clara y conectividad total con el parabrisas panorámico y el avanzado sistema de
-					infoentretenimiento de 12,3”. Disfruta de Bluetooth, Apple CarPlay, sistema de sonido Pioneer y control de clima 
-					automático, todo pensado para que cada viaje sea una experiencia única y placentera. Siente la diferencia de viajar con 
+					infoentretenimiento de 12,3”.
 					tecnología de punta.
 					</p>`,
     },
@@ -40,9 +34,7 @@ const hintsById: any = {
         image: Luces,
         content: `<h3 class="play-bold text-left uppercase">Luz</h3>
 					<p class="open-sans-regular">
-					Destaca en cualquier camino con el moderno sistema de iluminación LED, que no solo mejora tu visibilidad y seguridad, 
-					sino que también aporta un diseño deportivo y elegante. Conduce con confianza de día y de noche, sabiendo que tu vehículo 
-					está equipado para sobresalir y captar todas las miradas.
+					Destaca en cualquier camino con el moderno sistema de iluminación LED, que no solo mejora tu visibilidad y seguridad.
 					</p>`,
     },
     motor: {
@@ -50,8 +42,6 @@ const hintsById: any = {
         content: `<h3 class="play-bold text-left uppercase">Motor</h3>
 				<p class="open-sans-regular">
 				Siente la potencia y eficiencia de un motor diseñado para ofrecerte el mejor desempeño en cada kilómetro. 
-				Con un mantenimiento sencillo y un rendimiento óptimo, este motor te garantiza viajes largos y sin preocupaciones. 
-				Elige innovación, fuerza y economía en cada recorrido, y lleva tu experiencia de manejo al siguiente nivel.
 				</p>`,
     },
 };

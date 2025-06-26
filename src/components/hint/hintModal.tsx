@@ -28,7 +28,7 @@ const HintModalC: React.FC<HintModalProps> = ({
                         animate={{ scale: 1, opacity: 1 }}
                         exit={{ scale: 0.95, opacity: 0 }}
                         onClick={(e) => e.stopPropagation()}
-                        className="bg-white text-black p-0 rounded-lg w-full max-w-4xl shadow-xl cursor-default relative overflow-hidden h-auto md:h-[400px]"
+                        className="bg-black p-0 rounded-lg w-full max-w-4xl shadow-xl cursor-default relative overflow-hidden h-auto md:h-[500px]"
                     >
                         <button
                             onClick={() => setIsOpen(false)}
@@ -40,19 +40,25 @@ const HintModalC: React.FC<HintModalProps> = ({
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                             </svg>
                         </button>
-                        <div className="flex flex-col md:grid md:grid-cols-[2fr_3fr] h-full">
-                            {/* Sección imagen */}
-                            <div className="w-full h-48 md:h-full">
-                                <img
-                                    src={image}
-                                    alt="Hint ilustración"
-                                    className="w-full h-full object-cover"
-                                />
-                            </div>
-                            {/* Sección contenido */}
-                            <div className="p-4 md:p-6 flex flex-col justify-between h-full">
-                                <div>
-                                    <h3 className="text-xl md:text-2xl font-bold mb-2 open-sans-regular text-center">
+                        <div className="relative w-full h-full flex flex-col justify-end items-center">
+                            <img
+                                src={image}
+                                alt="Hint ilustración"
+                                className="w-full h-[300px] md:h-[500px] object-cover object-center block"
+                            />
+                            {/* Overlay degradado y contenido */}
+                            <div className="absolute bottom-0 left-0 w-full" style={{height: '50%', pointerEvents: 'none'}}>
+                                <div style={{
+                                    position: 'absolute',
+                                    left: 0,
+                                    bottom: 0,
+                                    width: '100%',
+                                    height: '100%',
+                                    background: 'linear-gradient(0deg, rgba(0,0,0,0.85) 30%, rgba(0,0,0,0.0) 100%)',
+                                    zIndex: 2,
+                                }} />
+                                <div className="relative z-10 w-full flex flex-col items-center justify-end h-full pb-4 px-4">
+                                    <h3 className="text-2xl md:text-3xl font-bold mb-2 text-white text-center drop-shadow-lg">
                                         <div
                                             className="hint-content"
                                             dangerouslySetInnerHTML={{ __html: content || '' }}
