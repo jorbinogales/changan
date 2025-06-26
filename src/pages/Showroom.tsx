@@ -74,6 +74,9 @@ const Showroom: React.FC<ShowroomVehicleProps> = ({ config }) => {
 		setShowHints(true); // Mostrar los hints cuando el indicador se oculte
 	};
 
+	// Imagenes precargadas en memoria
+	const preloadedImages = useRef<{ [key: string]: HTMLImageElement }>({});
+
 	// Preload images
 	useEffect(() => {
 		const preloadByQuality = async (quality: string) => {
@@ -86,6 +89,7 @@ const Showroom: React.FC<ShowroomVehicleProps> = ({ config }) => {
 						const img = new window.Image();
 						img.src = src;
 						img.onload = () => {
+							preloadedImages.current[src] = img;
 							loaded += 1;
 							setLoadedCount(lc => lc + 1);
 							setLastLoadedImage(src);
@@ -287,6 +291,20 @@ const Showroom: React.FC<ShowroomVehicleProps> = ({ config }) => {
 		};
 	}, [showInterior]);
 
+	// Mostrar la imagen precargada instantáneamente si existe
+	const [displayedSrc, setDisplayedSrc] = useState(imageSrc);
+	useEffect(() => {
+		const img = preloadedImages.current[imageSrc];
+		if (img && img.complete) {
+			setDisplayedSrc(imageSrc);
+		} else {
+			// Si no está precargada, espera a que cargue
+			const tempImg = new window.Image();
+			tempImg.src = imageSrc;
+			tempImg.onload = () => setDisplayedSrc(imageSrc);
+		}
+	}, [imageSrc]);
+
 
 
 	return (
@@ -318,7 +336,7 @@ const Showroom: React.FC<ShowroomVehicleProps> = ({ config }) => {
 
 								<img
 									ref={imgRef}
-									src={imageSrc}
+									src={displayedSrc}
 									className={`vehiculo ${isBouncing ? 'bounce' : ''}`}
 									alt="Vehículo"
 									style={zoomed ? { transform: 'scale(1.5)' } : undefined}
