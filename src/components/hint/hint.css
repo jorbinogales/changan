@@ -1,7 +1,7 @@
 .indicator-container {
   position: relative;
-  width: 25px;
-  height: 25px;
+  width: 15px;
+  height: 15px;
   border: 3px solid white; /* borde interno blanco */
   border-radius: 50%;
   box-shadow: 0 0 0 3px var(--color-blue-changan);
@@ -20,8 +20,8 @@
 }
 
 .indicator-core {
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   background-color: white;
   border-radius: 50%;
   z-index: 2;
@@ -44,13 +44,13 @@
     opacity: 0;
   }
   70% {
-    width: 35px;
-    height: 35px;
+    width: 20px;
+    height: 20px;
     opacity: 1;
   }
   100% {
-    width: 60px;
-    height: 60px;
+    width: 25px;
+    height: 25px;
     opacity: 0;
   }
 }

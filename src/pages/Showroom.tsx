@@ -78,27 +78,29 @@ const Showroom: React.FC<ShowroomVehicleProps> = ({ config }) => {
 	useEffect(() => {
 		const preloadByQuality = async (quality: string) => {
 			let loaded = 0;
+			const promises: Promise<void>[] = [];
 			for (const color of config.colors) {
 				for (let i = 1; i < config.totalImages; i += config.step) {
 					const src = `/assets/vehicles/cs55plus/${color}/${quality}/${formatNumber(i)}.png`;
-					await new Promise<void>((resolve) => {
+					promises.push(new Promise<void>((resolve) => {
 						const img = new window.Image();
 						img.src = src;
 						img.onload = () => {
 							loaded += 1;
-							setLoadedCount(loaded);
+							setLoadedCount(lc => lc + 1);
 							setLastLoadedImage(src);
 							resolve();
 						};
 						img.onerror = () => {
 							loaded += 1;
-							setLoadedCount(loaded);
+							setLoadedCount(lc => lc + 1);
 							setLastLoadedImage(src);
 							resolve();
 						};
-					});
+					}));
 				}
 			}
+			await Promise.all(promises);
 			setQualityLoaded(prev => ({ ...prev, [quality]: true }));
 			if (quality === 'low') {
 				setLoading(false); // Mostrar la página cuando termine la baja
@@ -251,7 +253,7 @@ const Showroom: React.FC<ShowroomVehicleProps> = ({ config }) => {
 				[MarkersPlugin, { markers: config.markers }]
 			],
 			navbar: ['caption', 'zoom'],
-			defaultZoomLvl: 1.7,
+			defaultZoomLvl: 50,
 			moveSpeed: 2,
 		});
 
@@ -287,7 +289,7 @@ const Showroom: React.FC<ShowroomVehicleProps> = ({ config }) => {
 						<div className="max-w-7xl container relative mt-5">
 							<TitleC  onZoomClick={() => setZoomed(z => !z)} isZoomed={zoomed}/>
 							<div
-								className="vehicle-box w-full overflow-x-hidden overflow-y-hidden relative max-w-[1000px] flex m-auto"
+								className="vehicle-box w-full overflow-x-hidden overflow-y-hidden relative max-w-[1200px] flex m-auto"
 								onTouchStart={handleTouchStart}
 								onTouchMove={handleTouchMove}
 								onMouseDown={handleMouseDown}
