@@ -143,15 +143,30 @@ const Showroom: React.FC<ShowroomVehicleProps> = ({ config }) => {
 		window.removeEventListener('mousemove', handleMouseMove);
 	};
 
+	// Throttle para evitar saturar el render al girar
+	const throttle = (func: (...args: any[]) => void, limit: number) => {
+	    let inThrottle: boolean;
+	    return function(this: any, ...args: any[]) {
+	        if (!inThrottle) {
+	            func.apply(this, args);
+	            inThrottle = true;
+	            setTimeout(() => (inThrottle = false), limit);
+	        }
+	    };
+	};
+
+	const updateIndexThrottled = useRef(throttle((newIndex: number) => {
+	    setCurrentIndex(newIndex);
+	}, 30)).current; // 30ms entre frames
+
 	const handleMouseMove = (e: MouseEvent) => {
 		if (startX.current === null) return;
 		const diffX = e.clientX - startX.current;
-
 		if (Math.abs(diffX) > 10) {
 			if (diffX > 5) {
-				setCurrentIndex((prev) => (prev + config.step > MAX_INDEX ? 1 : prev + config.step));
+				updateIndexThrottled((prev: number) => (prev + config.step > MAX_INDEX ? 1 : prev + config.step));
 			} else {
-				setCurrentIndex((prev) => (prev - config.step < 1 ? MAX_INDEX : prev - config.step));
+				updateIndexThrottled((prev: number) => (prev - config.step < 1 ? MAX_INDEX : prev - config.step));
 			}
 			startX.current = e.clientX;
 		}
@@ -165,12 +180,11 @@ const Showroom: React.FC<ShowroomVehicleProps> = ({ config }) => {
 		if (startX.current === null) return;
 		const currentX = e.touches[0].clientX;
 		const diffX = currentX - startX.current;
-
 		if (Math.abs(diffX) > 10) {
 			if (diffX > 5) {
-				setCurrentIndex((prev) => (prev + config.step > MAX_INDEX ? 1 : prev + config.step));
+				updateIndexThrottled((prev: number) => (prev + config.step > MAX_INDEX ? 1 : prev + config.step));
 			} else {
-				setCurrentIndex((prev) => (prev - config.step < 1 ? MAX_INDEX : prev - config.step));
+				updateIndexThrottled((prev: number) => (prev - config.step < 1 ? MAX_INDEX : prev - config.step));
 			}
 			startX.current = currentX;
 		}

@@ -5,7 +5,7 @@ export const CS55PLUS_CONFIG = {
   qualities: ['low', 'medium', 'high'],
   defaultColor: 'white',
   totalImages: 45,
-  step: 1,
+  step: 2,
   markers: [
     {
       id: "#0.8713489950832229",
