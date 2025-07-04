@@ -52,7 +52,6 @@ const DownButtonsC = ({ onColorChange }: DownButtonsCProps) => {
 						alignItems: 'center',
 						justifyContent: 'center',
 						transition: 'border 0.2s',
-						bottom: '150px'
 					}}
 					onClick={() => selectColor(color)}
 				>
