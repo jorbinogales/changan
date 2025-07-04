@@ -1,16 +1,18 @@
 import ButtonC from '../button';
 import Share from '../../assets/icons/share.svg';
 // import Like from '../../assets/icons/like.svg';
-import Zoom from '../../assets/icons/ZoomIn.svg';
-import ZoomOut from '../../assets/icons/ZoomOut.svg';
+// import Zoom from '../../assets/icons/ZoomIn.svg';
+// import ZoomOut from '../../assets/icons/ZoomOut.svg';
+import Interior from '../../assets/icons/interior.svg';
 
 interface TitleCProps {
-    onZoomClick: () => void;
-    isZoomed: boolean;
+    // onZoomClick: () => void;
+    // isZoomed: boolean;
+	onInsideClick?: () => void; // Añadido para manejar el clic en el botón de interior
 }
 
 
-const TitleC = ({ onZoomClick, isZoomed }: TitleCProps) => {
+const TitleC = ({ onInsideClick }: TitleCProps) => {
 	const handleShare = () => {
 		if (navigator.share) {
 			navigator
@@ -54,14 +56,22 @@ const TitleC = ({ onZoomClick, isZoomed }: TitleCProps) => {
 			alt="CHANGAN CS55 PLUS"
 			className="max-w-[200px]" // Elimina mt-2 aquí
 			/>
-			<ButtonC
+			{/* <ButtonC
 				className="hidden md:flex cursor-pointer flex items-center justify-center w-12 h-12 button-blue-changan text-white button-rounded-changan  float-right"
 				Icon={isZoomed ? ZoomOut : Zoom}
 				onClick={onZoomClick}
 				classNameIcon="p-2"
 				tooltipId="button-zoom"
 				tooltipText={isZoomed ? "Reducir imagen" : "Ampliar imagen"}
-			></ButtonC>
+			></ButtonC> */}
+			<ButtonC
+				className="cursor-pointer flex items-center justify-center w-12 h-12 button-blue-changan text-white button-rounded-changan float-right"
+				Icon={Interior}
+				classNameIcon="p-2"
+				tooltipId="buttoninside"
+				tooltipText="Entrar al vehículo"
+				onClick={onInsideClick}
+			/>
 		</>
 	);
 };

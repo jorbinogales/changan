@@ -32,8 +32,8 @@ const ModalInsideC: React.FC<ModalInsideProps> = ({
           >
             <button
 							onClick={onClose}
-							className="absolute button-blue-changan text-white cursor-pointer  top-3 right-3 z-10 bg-gray-200 hover:bg-gray-300 text-black rounded-full p-2 flex items-center justify-center"
-							style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.08)' }}
+							className="absolute button-blue-changan text-white cursor-pointer top-3 right-3 z-10 bg-gray-200 hover:bg-gray-300 text-black rounded-full p-2 flex items-center justify-center"
+							style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.08)', color: 'white'}}
 							aria-label="Cerrar"
 						>
 							<svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">

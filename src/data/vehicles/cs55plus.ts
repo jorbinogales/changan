@@ -9,7 +9,7 @@ export const CS55PLUS_CONFIG = {
   markers: [
     {
       id: "#0.8713489950832229",
-      position: { yaw: 5.815925404315755, pitch: -0.159145403541164 },
+      position: { yaw: 5.955925404315755, pitch: -0.299145403541164 },
       html: `
         <div class="indicator-container">
           <div class="pulse-ring"></div>
@@ -32,7 +32,7 @@ export const CS55PLUS_CONFIG = {
     },
     {
       id: "#0.3434954835748676",
-      position: { yaw: 5.956774907187396, pitch: 0.01000081400129282 },
+      position: { yaw: 6.099774907187396, pitch: -0.11000081400129282 },
       html: `
         <div class="indicator-container">
           <div class="pulse-ring"></div>
@@ -55,7 +55,7 @@ export const CS55PLUS_CONFIG = {
     },
     {
       id: "#0.17564282170655676",
-      position: { yaw: 6.2669117904307114, pitch: -0.1029369814575348 },
+      position: { yaw: 6.4069117904307114, pitch: -0.2129369814575348 },
       html: `
         <div class="indicator-container">
           <div class="pulse-ring"></div>
@@ -124,7 +124,7 @@ export const CS55PLUS_CONFIG = {
     },
     {
       id: "#0.6839899884784868",
-      position: { yaw: 1.8657628559769754, pitch: -0.2776830177943106 },
+      position: { yaw: 4.9057628559769754, pitch: -0.2776830177943106 },
       html: `
         <div class="indicator-container">
           <div class="pulse-ring"></div>

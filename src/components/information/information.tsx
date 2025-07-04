@@ -1,7 +1,5 @@
 import { useState } from 'react';
-import Auto1 from '../../assets/vehicles/cs55plus/components/auto1.png';
-import Auto2 from '../../assets/vehicles/cs55plus/components/auto2.png';
-import Auto3 from '../../assets/vehicles/cs55plus/components/auto3.png';
+import CaroucelC from '../carousel/carousel';
 
 const InformationC = () => {
 	const [activeTab, setActiveTab] = useState('motor');
@@ -126,19 +124,7 @@ const InformationC = () => {
 
 			{/* Parte derecha: imágenes con grid 2 columnas arriba y 1 abajo span 2 */}
 			<div className="p-4">
-				<div className="grid grid-cols-2 gap-4">
-					<div className="p-4">
-						<img src={Auto3} alt="Auto3" className="w-full" />
-					</div>
-
-					<div className="p-4">
-						<img src={Auto2} alt="Auto2" className="w-full" />
-					</div>
-
-					<div className="p-4 col-span-2">
-						<img src={Auto1} alt="Auto1" className="w-full" />
-					</div>
-				</div>
+				<CaroucelC></CaroucelC>
 			</div>
 		</div>
 	);

@@ -34,7 +34,7 @@ const Showroom: React.FC<ShowroomVehicleProps> = ({ config }) => {
 	const MAX_INDEX = config.totalImages - config.step;
 
 	/* Zoom */
-	const [zoomed, setZoomed] = useState(false);
+	// const [zoomed, setZoomed] = useState(false);
 
 	/* Quality */
 	const [currentQuality, setCurrentQuality] = useState(config.qualities[0]);
@@ -319,7 +319,7 @@ const Showroom: React.FC<ShowroomVehicleProps> = ({ config }) => {
 				<div className="flex-1 p-4 transition-all duration-300 relative mt-5">
 					<div className="mb-[5vh] flex justify-center items-center mt-5">
 						<div className="max-w-7xl container relative mt-5">
-							<TitleC  onZoomClick={() => setZoomed(z => !z)} isZoomed={zoomed}/>
+							<TitleC onInsideClick={() => setShowInterior(true)} />
 							<div
 								className="vehicle-box w-full overflow-x-hidden overflow-y-hidden relative max-w-[1200px] flex m-auto"
 								onTouchStart={handleTouchStart}
@@ -339,7 +339,7 @@ const Showroom: React.FC<ShowroomVehicleProps> = ({ config }) => {
 									src={displayedSrc}
 									className={`vehiculo ${isBouncing ? 'bounce' : ''}`}
 									alt="Vehículo"
-									style={zoomed ? { transform: 'scale(1.5)' } : undefined}
+									style={undefined}
 									draggable={false}
 									onLoad={() => {
 										if (imgRef.current) {
@@ -353,11 +353,7 @@ const Showroom: React.FC<ShowroomVehicleProps> = ({ config }) => {
 									alt="Girar derecha"
 								/>}
 								<div
-									style={zoomed ? { 
-										transform: 'scale(1.5)',
-										position: 'absolute',
-										height: imgHeight,
-									} : {
+									style={{
 										position: 'absolute',
 										height: imgHeight,
 									}}
@@ -385,7 +381,7 @@ const Showroom: React.FC<ShowroomVehicleProps> = ({ config }) => {
 
 							{showHints && <WhatsAppButton />}
 							<IndicatorC onHide={handleIndicatorHide} />
-							<DownButtonsC onColorChange={changeColor} onInsideClick={() => setShowInterior(true)} />
+							<DownButtonsC onColorChange={changeColor}  />
 						</div>
 					</div>
 				</div>
