@@ -271,8 +271,10 @@ const Showroom: React.FC<ShowroomVehicleProps> = ({ config }) => {
 				[MarkersPlugin, { markers: config.markers }]
 			],
 			navbar: ['caption', 'zoom'],
-			defaultZoomLvl: 50,
+			defaultZoomLvl: 65,
 			moveSpeed: 2,
+			defaultYaw: 0.1,
+			defaultPitch: -0.3
 		});
 
 		viewerInstance.current = viewer;
